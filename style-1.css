@@ -1,0 +1,109 @@
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+
+  ::selection {
+    background: #0168B3;
+  }
+
+
+
+  /*
+  Main
+  */  
+
+
+  body {
+    background-color: #F6EEE3;
+    color: #F6EEE3;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'gt-america-reg', Arial, Helvetica, sans-serif;
+  }
+
+
+  /*
+  Global Typography 
+  */
+
+@font-face {
+    font-family: 'garamond-book';
+    src: url('/fonts/garamond-book-narrow-c.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face{
+    font-family: 'gt-america-reg';
+    src: url('/fonts/gt-america-regular.woff') format('woff');
+    font-style: normal;
+  }
+  
+  p {
+    color: #000;
+  }
+  
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #000;
+    font-family: 'gt-america-reg', Georgia, 'Times New Roman', Times, serif;
+    
+  
+  }
+  
+  h2 {
+  font-size: 2rem;
+  color: #000;
+  font-family: 'garamond-book', Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #000;
+    font-family: 'garamond-book', Georgia, 'Times New Roman', Times, serif;
+  }
+
+
+  /*
+  Nav 
+  */
+
+nav { 
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-family: 'gt-america-reg', Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #000;
+  }
+  
+  nav a {
+    color:#000;
+    transition: 0.4s;
+  }
+  
+  nav a:hover {
+    color: #0168B3;
+  }
+
+
+/*
+ Grid
+  */
+
+
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    font-family: 'gt-america-reg';
+    color: #000;
+    background-color: #fff;
+    }
