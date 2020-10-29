@@ -48,13 +48,31 @@ html {
   color: #F6EEE3;
 }
  .logo {
-   width: 325px;
+   width: 100%;
    margin-top: 8px;
+   font-family: 'garamond-book';
+   font-size: 3rem;
+   font-weight: normal;
+   font-style: normal;
  }
 
  .logo-box {
  margin-bottom: 24px;
 
+ }
+
+ .site-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 64px;
+  ;
+
+ }
+
+ .basic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-width: 0px;
  }
 
 
