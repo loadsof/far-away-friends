@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <script src="./lib/luxon/luxon.min.js"></script>
     <title>Dashboard - Far Away Friends</title>  
     <link rel="icon" type="image/png" href="img/assets/fav-far-away-friends.png"/>
     
 </head>
-<body>
     <header>
-        
+    
+
 
         <nav id="sitenav" class="site-nav">
             
@@ -38,11 +39,17 @@
 
 
     </header>
-    <main id="main">
-
 
     
- 
+
+    <main id="main">
+<body>
+
+    <div class="local"><p>Your time</p><p class="localTime" id="localTime">current time</p></div>
+
+
+
+
         
     <div class="parent">
 
@@ -54,26 +61,26 @@
                      </div>
     
                       <h3 class='card-title'>Oliver Puttick</h3>
-                         <section class="time">
-                          <div class="column">
-                            <p>09:45am</p> 
+                         <section class="geo-flex">
+                          <div class="geo-time">
+                            <p class="geo-time">09:45am</p> 
                           </div>
-                           <div class="column">
-                            <p>London, UK</p> 
+                           <div class="geo-flex">
+                            <p>London, England</p> 
                            </div>
                         </section>
-                        <class class="weather">
+                        <div class="weather">
                             <div class="row">
                               <img class="weather-icon" src="img/weather-icons/sun-cloudy.svg"> 
                               <p>16°</p> 
                             </div>
-                          </class>
+                          </div>
     
     
                 </div>
                  <div><iframe src="https://open.spotify.com/embed/playlist/6TAXOJAwMBitPmEAVzeTZJ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     <div style="color: #000" class="tooltip"> About playlist
-                        <span class="tooltiptext">Coming soon.<br>
+                        <span class="tooltiptext">hello there<br>
                             </span></div>     
                 
                 
@@ -89,14 +96,14 @@
                      </div>
     
                       <h3 class='card-title'>Laura Saavedra  </h3>
-                         <class class="time">
+                         <section class="time">
                           <div class="column">
                             <p>10:00pm</p> 
                           </div>
                            <div class="column">
                             <p>Bogota, Colombia</p> 
                            </div>
-                        </class>
+                        </section>
                         <class class="weather">
                             <div class="row">
                               <img class="weather-icon" src="/img/weather-icons/night-cloudy.svg"> 
@@ -150,6 +157,7 @@
                       
             </section>
         </article>
+
         <article class="friend-card">
             <section class="friend">
                 <div> 
@@ -185,7 +193,7 @@
             </section>
         </article>
         
-     
+    
 
     </div>
 
@@ -195,19 +203,94 @@
 
     </div>
 
-    </header>
 
-    <div class="row">
-        <div class="column"></div>
-        <div class="column"></div>
-      </div>
+
+
+
+
+<script>
+    
+//get the current (local) time
+//and return a string with the format
+//h:m:s  
+
+
+function getTimeString (){
+  const now = new Date();
+  return now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+}
+
+//get time for timezone 
+
+const locations = [
+  {
+    targetElement: "#nyTime",
+    timeZone: "America/New_York"
+  },
+  {
+    targetElement: "",
+    timeZone: ""
+  },
+  {
+    targetElement: "",
+    timeZone: ""
+  },
+  {
+    targetElement: "",
+    timeZone: ""
+  },
+]
+
+function update(){
+  locations.forEach(item => {
+    let timeObject = getTime(item.timeZone);
+    var targetElement = document.querySelector(item.targetElement);
+    targetElement.innerText = formatTimeToString(timeObject);
+  });
+}
+
+
+
+//function GetTimeforZone(zoneName)
+//time object for zoneName
+
+//
+
+
+//take tje id of an element as a parameter
+//and set its inner text to be the value of
+//getTimeString
+
+function updateTime (elementID) {
+const el = document.querySelector(elementID);
+el.innerText = getTimeString();
+
+}
+
+//ran any functions etc that we want to refreresh the page content
+
+function updatePage (){
+  updateTime("#localTime");
+}
+
+  // every 500 milliseconds, call the updatePage (or 60000)
+//functions to refresh page content
+
+setInterval(updatePage, 500)
+
+updatePage();
+
+
+
+</script>
+
+<footer>
+
+</footer>
 
 
 </body>
-
 </html>
 
 
 
-
-      

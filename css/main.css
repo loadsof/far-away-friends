@@ -16,15 +16,23 @@ html {
 
   ::selection {
     background: #0168B3;
+    color: #fff;
   }
-  
 
- 
-    
-    
+  .black {
+    color: black;
+  }
 
+  .local{
+    border: 1px solid #000;
+    text-align: left;
+    background-color: burlywood;
+    padding: 10px;
+}
 
-
+.localTime{
+  font-size: 24px;
+}
 
   body {
     background-color: #F6EEE3;
@@ -120,7 +128,7 @@ font-size: 2rem;
 line-height: 2.2rem;
 font-weight: normal;
 color: #000;
-font-family: 'garamond-book', Georgia, 'Times New Roman', Times, serif;
+font-family: 'gt-america-reg', Georgia, 'Times New Roman', Times, serif;
 }
 
 h3 {
@@ -128,7 +136,7 @@ h3 {
   line-height: 1.5rem;
   font-weight: normal;
   color: #000;
-  font-family: 'garamond-book', Georgia, 'Times New Roman', Times, serif;
+  font-family: 'gt-america-reg', Georgia, 'Times New Roman', Times, serif;
 }
 
 .card-title {
@@ -222,78 +230,91 @@ nav a:active {
       /*
   Friend Card 
   */
-  .friend-card {
-    background-color: #E5E5E5;
-    position: relative;
-    padding: 24px;
-    border-radius: 4px;
-    border: 1px solid #000;
-  }
+        .friend-card {
+          background-color: #E5E5E5;
+          position: relative;
+          padding: 24px;
+          border-radius: 4px;
+          border: 1px solid #000;
+        }
 
-  .intro-text{
-max-width: 450px;
-  }
+        .intro-text{
+      max-width: 450px;
+        }
 
-iframe {
-  min-width: 240px;
-  width: 100%;
-}
+      iframe {
+        min-width: 240px;
+        width: 100%;
+      }
 
-.circle-box {
-  border-radius: 100px;
-  width: 60px;
-  margin-left: 16px;
-}
+      .circle-box {
+        border-radius: 100px;
+        width: 60px;
+        margin-left: 16px;
+      }
 
-  
-  .friend-img {
-    
-    max-width: 100%;
-    border-radius: 4px;
-  }
+        
+        .friend-img {
+          
+          max-width: 100%;
+          border-radius: 4px;
+        }
 
-  .weather-icon {
-    width: 50px;
-    margin-right: 8px;
-  }
+        .weather-icon {
+          width: 50px;
+          margin-right: 8px;
+        }
 
-  .friend {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 24px;
-    position: relative;
-  }
-  
-  div {
-  
-    border-radius: 4px;
-  }
+        .friend {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          grid-gap: 24px;
+          position: relative;
+        }
+        
+        div {
+        
+          border-radius: 4px;
+        }
 
-  .time { 
-    display: flex;
-    max-height: fit-content;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-  .weather { 
-    display: flex;
-    max-height: fit-content;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
+        .geo2 { 
+          display: flex;
+          max-height: fit-content;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+
+        .geo { 
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+          grid-gap: 8px;
+          position: relative;
+        }
+
+        .weather { 
+          display: flex;
+          max-height: fit-content;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
 
 
-  .column {
-    flex: 50%;
-    max-height: fit-content;
-    margin-bottom: 8px;
-    margin-bottom: 0px;
-  }
+        .geo-flex {
+          flex: 50%;
+          max-height: fit-content;
+          margin-bottom: 8px;
+          margin-bottom: 0px;
+        }
 
-  .row {
-    display: flex;
-    max-width: fit-content;
-  }
+        .geo-time {
+          font-size: 24px;
+
+        }
+
+        .row {
+          display: flex;
+          max-width: fit-content;
+        }
 
   
 
@@ -305,6 +326,7 @@ iframe {
 
 
 .tooltip {
+  
   font-size: 13px;
   text-transform: uppercase;
   margin-top: 8px;
@@ -315,17 +337,15 @@ iframe {
 }
 
 
-
-
 /* Tooltip text */
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 160px;
+  width: 240px;
   background-color: #0168B3;
   color: #fff;
   text-align: center;
-  padding: 16px;
+  padding: 24px;
   border-radius: 4px;
 
   /* Position the tooltip text */
