@@ -44,11 +44,7 @@
 
     <main id="main">
 <body>
-
-    <div class="local"><p>Your time</p><p class="localTime" id="localTime">current time</p></div>
-
-
-
+    
 
         
     <div class="parent">
@@ -63,7 +59,7 @@
                       <h3 class='card-title'>Oliver Puttick</h3>
                          <section class="geo-flex">
                           <div class="geo-time">
-                            <p class="geo-time">09:45am</p> 
+                            <p class="geo-time" id="ukTime">current time</p> 
                           </div>
                            <div class="geo-flex">
                             <p>London, England</p> 
@@ -72,7 +68,7 @@
                         <div class="weather">
                             <div class="row">
                               <img class="weather-icon" src="img/weather-icons/sun-cloudy.svg"> 
-                              <p>16°</p> 
+                              <p>weather TBC</p> 
                             </div>
                           </div>
     
@@ -98,7 +94,7 @@
                       <h3 class='card-title'>Laura Saavedra  </h3>
                          <section class="time">
                           <div class="column">
-                            <p>10:00pm</p> 
+                            <p class="geo-time" id="colombiaTime">10:00pm</p> 
                           </div>
                            <div class="column">
                             <p>Bogota, Colombia</p> 
@@ -107,7 +103,7 @@
                         <class class="weather">
                             <div class="row">
                               <img class="weather-icon" src="/img/weather-icons/night-cloudy.svg"> 
-                              <p>27°</p> 
+                              <p>weather TBC</p> 
                             </div>
                           </class>
     
@@ -133,7 +129,7 @@
                       <h3 class='card-title'>Marn Roberts</h3>
                          <class class="time">
                           <div class="column">
-                            <p>03:45pm</p> 
+                            <p class="geo-time" id="berlinTime">03:45pm</p> 
                           </div>
                            <div class="column">
                             <p>Berlin, Germany</p> 
@@ -142,7 +138,7 @@
                         <section class="weather">
                             <div class="row">
                               <img class="weather-icon" src="img/weather-icons/sun-cloudy.svg"> 
-                              <p>06°</p> 
+                              <p>weather TBC</p> 
                             </div>
                           </section>
     
@@ -168,7 +164,7 @@
                       <h3 class='card-title'>Lloyd Barnett</h3>
                          <section class="time">
                           <div class="column">
-                            <p>09:45am</p> 
+                            <p class="geo-time" id="darwinTime">09:45am</p> 
                           </div>
                            <div class="column">
                             <p>Alice Springs, Australia</p> 
@@ -177,7 +173,7 @@
                         <section class="weather">
                             <div class="row">
                               <img class="weather-icon" src="img/weather-icons/sun-cloudy.svg"> 
-                              <p>27°</p> 
+                              <p>weather TBC</p> 
                             </div>
                           </section>
     
@@ -224,53 +220,56 @@ function getTimeString (){
 
 const locations = [
   {
-    targetElement: "#nyTime",
+    targetElement: "#ukTime",
+    timeZone: "Europe/London"
+  },
+  {
+    targetElement: "#darwinTime",
+    timeZone: "Australia/Darwin"
+  },
+  {
+    targetElement: "#colombiaTime",
     timeZone: "America/New_York"
   },
   {
-    targetElement: "",
-    timeZone: ""
+    targetElement: "#berlinTime",
+    timeZone: "Europe/Berlin"
   },
   {
-    targetElement: "",
-    timeZone: ""
+    targetElement: "#melbTime",
+    timeZone: "Australia/Melbourne"
   },
-  {
-    targetElement: "",
-    timeZone: ""
-  },
+
 ]
 
 function update(){
-  locations.forEach(item => {
-    let timeObject = getTime(item.timeZone);
-    var targetElement = document.querySelector(item.targetElement);
-    targetElement.innerText = formatTimeToString(timeObject);
-  });
+  
 }
-
-
-
-//function GetTimeforZone(zoneName)
-//time object for zoneName
-
-//
 
 
 //take tje id of an element as a parameter
 //and set its inner text to be the value of
 //getTimeString
 
-function updateTime (elementID) {
-const el = document.querySelector(elementID);
-el.innerText = getTimeString();
+function updateTime () {
+  locations.forEach(item => {
+    let timeObject = luxon.DateTime.local().setZone(item.timeZone);
+    var targetElement = document.querySelector(item.targetElement);
+    targetElement.innerText = formatTimeToString(timeObject);
+  });
 
+}
+
+//
+
+function formatTimeToString(timeObject){
+  return timeObject.hour + ":" + timeObject.minute + ":" + timeObject.second;
 }
 
 //ran any functions etc that we want to refreresh the page content
 
 function updatePage (){
-  updateTime("#localTime");
+  updateTime();
 }
 
   // every 500 milliseconds, call the updatePage (or 60000)
@@ -285,7 +284,11 @@ updatePage();
 </script>
 
 <footer>
+  <div class="local">
+    <p>Made by Michael Loader, in Melbourne (<span id="melbTime">current time</span>) </p>
 
+  </div>
+ 
 </footer>
 
 
